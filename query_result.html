@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>部署机器进程情况</title>
+  </head>
+  <body>
+      
+      <span style="color:red">{{image_name}}</span><span>镜像部署机器相关进程</span><br><br>
+      
+      {% for host, info in containers.iteritems() %}
+			    <p>机器IP：{{host}}</p>
+			    <p>进程列表：</p>
+			    {% for proinfo in info %}
+    			 <p>&nbsp;&nbsp;&nbsp;镜像名称：{{proinfo.Image}}</p>
+    			 <p>&nbsp;&nbsp;&nbsp;容器名称：{{proinfo.Names}}</p>
+    			 <p>&nbsp;&nbsp;&nbsp;容器ID：{{proinfo.Id}}&nbsp;&nbsp;&nbsp;<a href="http://10.20.102.228:5000/dockerdel?image={{proinfo.Image}}&container_id={{proinfo.Id}}&host={{host}}"><input type="button" value="停止该进程"></input></a></p>
+    			 
+                         <p>&nbsp;&nbsp;&nbsp;创建时间：{{proinfo.CreateTime}}</p>
+    			 <p>&nbsp;&nbsp;&nbsp;容器状态：{{proinfo.Status}}</p>
+    			 <p>&nbsp;&nbsp;&nbsp;程序目录：{{proinfo.prodir}}</p>
+    			 <p>&nbsp;&nbsp;&nbsp;程序命令：{{proinfo.procmd}}</p>
+    			 <br>
+    			{% endfor %}
+                        <HR style="border:1 dashed #987cb9" width="99%" color=#987cb9 SIZE=1>
+			{% endfor %}
+
+
+  </body>
+</html>

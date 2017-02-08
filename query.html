@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>  
+<html>  
+    <head>  
+        <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />  
+        <title>查询容器</title>
+    </head>  
+    <body>
+        <span style="font-weight:bold;">查询容器</span><br><br>
+        <form  method="post" action="http://10.20.102.228:5000/dockerquery">
+            镜像名称:<input  type="text"  name="image" /><span style="color:red">&nbsp;*（必填）</span><span>&nbsp;容器的镜像名称</span><br><br>
+            部署机器:<input  type="text"  name="host" /><span>&nbsp;指定查询的机器ip列表，默认为空则查询所有机器，多个机器采用空格分隔</span><br><br>
+
+            <input type="submit" value="查询容器">
+        </form>    
+    </body>  
+</html>  

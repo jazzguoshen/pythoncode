@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>  
+<html>  
+    <head>  
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">  
+        <title>配置容器方案</title>
+    </head>  
+    <body>
+        <span style="font-weight:bold;">配置容器方案</span><br><br>
+        <form  method="post" action="http://10.20.102.228:5000/plansave">
+            <table id="tb1" >
+                <tbody id="tb">
+                    <tr id="1st">
+                        方案名称:<input  type="text"  name="planname" /><span style="color:red">&nbsp;*（必填）</span><span>&nbsp;配置方案的名称</span><br><br>
+                        镜像名称:<input  type="text"  name="image" /><span style="color:red">&nbsp;*（必填）</span><span>&nbsp;容器的镜像名称</span><br><br>
+                        挂载目录:<input  type="text"  name="volumes" size="100" /><span>&nbsp;挂载目录，多个挂在目录使用 || 符号分割，如/home/data1||/home/data2</span><br><br>
+                        程序目录:<input  type="text"  name="prodir"  size="100" /><span>&nbsp;容器内启动进程的目录，填写执行命令所在的目录</span><br><br>
+                        启动命令:<input  type="text"  name="procmd"  size="100" /><span>&nbsp;容器内启动进程的命令</span>
+                        <input type="button" value="Add" onclick="add()">
+                    </tr>
+                </tbody>
+            </table>
+
+            <br><br>
+
+            <input type="submit" value="保存方案">
+        </form>    
+    </body>
+</html>
+
+<script>
+    function add() {
+        // 创建table 行标签tr
+        var trObj = document.createElement("tr");
+        // 设置行内容
+        trObj.innerHTML = "启动命令:<input  type='text'  name='procmd'  size='100' /><span>&nbsp;</span><input type='button' value='Add' onclick='add()'> <input type='button' value='Del' onclick='del(this)'>";
+        // 将行内容添加到表格中
+        document.getElementById("tb").appendChild(trObj);
+    }
+
+    function del(obj) {
+        // 直接删除当前对象的父节点的父节点
+        //document.getElementById("tb").removeChild(obj.parentNode.parentNode);
+        document.getElementById("tb").removeChild(obj.parentNode);
+    }
+</script>

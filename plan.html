@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>方案列表</title>
+  </head>
+  <body>
+      
+      <h1>方案列表</h1>
+      {% for plan in planlist %}
+    		<p>方案名称：{{plan.planname}} &nbsp;&nbsp;&nbsp;<a href="http://10.20.102.228:5000/plandel?image={{plan.image_name}}&planname={{plan.planname}}" target="_blank"><input type="button" value="删除该方案"></input></a> </p>
+    		<p>镜像名称：{{plan.image_name}}</p>
+    		<p>挂载目录：{{plan.volumes}}</p>
+                <p>程序目录：{{plan.prodir}}</p>
+    		<p>命令行列表：<a href="http://10.20.102.228:5000/planstart?image={{plan.image_name}}&planname={{plan.planname}}" target="_blank"><input type="button" value="一键启动"></input></a> </p>
+    			{% for cmd in plan.procmd_list %}
+    			 <p>&nbsp;&nbsp;&nbsp;{{cmd}}</p>
+    			{% endfor %}
+    		
+                <HR style="border:1 dashed #987cb9" width="99%" color=#987cb9 SIZE=1>
+			{% endfor %}
+
+  </body>
+</html>

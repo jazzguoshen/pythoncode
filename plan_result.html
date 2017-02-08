@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>方案执行结果</title>
+  </head>
+  <body>
+      
+      <span style="color:red">{{plan.planname}}</span><span>&nbsp;执行成功</span><br><br>
+
+    		<p>镜像名称：{{plan.image_name}}</p>
+    		<p>挂载目录：{{plan.volumes}}</p>
+    		<p>程序目录：{{plan.prodir}}</p>
+    		<p>以下命令已全部执行： </p>
+    			{% for cmd in plan.procmd_list %}
+    			 <p>&nbsp;&nbsp;&nbsp;{{cmd}}</p>
+    			{% endfor %}
+
+      <br><br><br>
+      <HR style="border:1 dashed #987cb9" width="99%" color=#987cb9 SIZE=1>
+
+      <a href="http://10.20.102.228:5000/query" >前往查询页</a>
+        &nbsp;&nbsp;
+        <a href="http://10.20.102.228:5000/create" >前往创建页</a>
+        &nbsp;&nbsp;
+        <a href="http://10.20.102.228:5000/stop" >前往停止页</a>
+        &nbsp;&nbsp;
+        <a href="http://10.20.102.228:5000/limit" >前往部署配置页</a>
+        <br>
+        <br>
+        <br>
+
+        <a href="http://10.20.102.228:5000/plan" >方案配置</a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="http://10.20.102.228:5000/plansearch" >方案查询</a>
+
+
+  </body>
+</html>
